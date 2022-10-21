@@ -1,5 +1,8 @@
 package com.identyTHOR.Program;
 
+import com.identyTHOR.SecureHWID.OSValidator;
+import com.identyTHOR.SecureHWID.SerialNumberLinux;
+import com.identyTHOR.SecureHWID.SerialNumberMac;
 import com.identyTHOR.SecureHWID.SerialNumberWindows;
 
 import java.util.Objects;
@@ -15,12 +18,7 @@ public class CreateToken {
     public CreateToken(){
 
     }
-    public CreateToken(String name, String email, String token) {
-        this.name = name;
-        this.email = email;
-        this.token = token;
-    }
-    public String inputName() {
+    public String createName() {
         System.out.println("Introduzca su nombre a continuación");
         Scanner scanner1 = new Scanner(System.in);
         name = scanner1.nextLine();
@@ -39,13 +37,21 @@ public class CreateToken {
         return randomTok;
 
     }
-    SerialNumberWindows serialNumberWindows = new SerialNumberWindows();
 
-    public SerialNumberWindows getHwidWindows() {
-
-        return serialNumberWindows;
+    public String getSN() {
+        String serialnbXML = null;
+        if (OSValidator.isWindows() == true) {
+            serialnbXML = SerialNumberWindows.getSerialNumber();
+            System.out.println("Su número de serie es: " + serialnbXML);
+        } else if (OSValidator.isMac() == true) {
+            serialnbXML = SerialNumberMac.getSerialNumber();
+            System.out.println("Su número de serie es: " + serialnbXML);
+        } else if (OSValidator.isUnix() == true) {
+            serialnbXML = SerialNumberLinux.getSerialNumber();
+            System.out.println("Su número de serie es: " + serialnbXML);
+        }
+        return serialnbXML;
     }
-
     public String getPassword() {
         System.out.println("Por favor, introduzca su contraseña a continuacion:");
         Scanner scanner = new Scanner(System.in);
@@ -59,6 +65,9 @@ public class CreateToken {
         return password;
     }
     public String getEmail() {
+        System.out.println("Introduzca su correo electronico:");
+        Scanner scanner = new Scanner(System.in);
+        email = scanner.nextLine();
         return email;
     }
 }

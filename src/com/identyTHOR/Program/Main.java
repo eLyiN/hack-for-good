@@ -1,48 +1,60 @@
 package com.identyTHOR.Program;
 
-import com.identyTHOR.SecureHWID.SerialNumberLinux;
-import com.identyTHOR.SecureHWID.SerialNumberMac;
-import com.identyTHOR.SecureHWID.SerialNumberWindows;
-import com.identyTHOR.SecureHWID.OSValidator;
-
 import java.util.Scanner;
+
+import static com.identyTHOR.SecureHWID.SerialNumberWindows.getSerialNumber;
+import static java.lang.System.exit;
 
 
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Bienveni@ a la versión 1.0 de IdentyChain");
-        System.out.println("Para proceder con el programa necesitamos saber si usted ya posee un token de identidad o no.");
-        System.out.println("Para ello inserte una de las siguientes opciones:");
-        System.out.println("    1. Crear token de identidad Blockchain con IdentyChain");
-        System.out.println("    2. Identificarse con un token de identidad de IdentyChain");
-        System.out.println("    3. Importar token de identidad en IdentyChain");
-        System.out.println("    4. Exportar token de identidad Blockchain con IdentyChain");
-        System.out.println("    5. Salir");
+    String serialNumber = getSerialNumber();
+    static String snXML;
 
-        Scanner scanner = new Scanner(System.in);
-        int option = scanner.nextInt();
-        if (option == 1) {
-            CreateToken token = new CreateToken();
-            String name = token.inputName();
-            System.out.println("El nombre introducido es: " + name);
-            if(OSValidator.isWindows() == true) {
-                String serialnb = SerialNumberWindows.getSerialNumber();
-                System.out.println("Su número de serie es: " + serialnb);
+    public static void main(String[] args) {
+            System.out.println("Bienveni@ a la versión 1.0 de IdentyTHOR");
+            System.out.println("Para proceder con el programa necesitamos saber si usted ya posee un token de identidad o no.");
+            System.out.println("Para ello inserte una de las siguientes opciones:");
+        while (true) {
+            System.out.println("    1. Crear token de identidad Blockchain con IdentyTHOR");
+            System.out.println("    2. Identificarse con un token de identidad de IdentyTHOR");
+            System.out.println("    3. Importar token de identidad en IdentyChain");
+            System.out.println("    4. Exportar token de identidad Blockchain con IdentyTHOR");
+            System.out.println("    5. Salir");
+
+            Scanner scanner = new Scanner(System.in);
+            int option = scanner.nextInt();
+            switch (option) {
+                case 1: {
+                    if(snXML == getSerialNumber()) {
+                        System.out.println("Este numero de serie ya esta en uso, por favor intentifiquese");
+                        break;
+                    }
+                    CreateToken token = new CreateToken();
+                    String nameXML = token.createName();
+                    System.out.println("El nombre introducido es: " + nameXML);
+                    snXML = token.getSN();
+                    String passwordXML = token.getPassword();
+                    String emailXML = token.getEmail();
+                    String tokenXML = token.getToken();
+                    System.out.println("Su token ha sido generado correctamente: " + tokenXML);
+                    break;
+                }
+                case 2: {
+                    Identification identificacion = new Identification();
+                }
+                case 3: {
+
+                }
+                case 4: {
+
+                }
+                case 5: {
+                    System.out.println("Hasta pronto!");
+                    exit(0);
+                }
             }
-            else if(OSValidator.isMac() == true) {
-                String serialnb = SerialNumberMac.getSerialNumber();
-                System.out.println("Su número de serie es: " + serialnb);
-            }
-            else if (OSValidator.isUnix() == true) {
-                String serialnb = SerialNumberLinux.getSerialNumber();
-                System.out.println("Su número de serie es: " + serialnb);
-            }
-               String password = token.getPassword();
-            String token1 = token.getToken();
-            System.out.println("Su token generado es: " + token1);
+            System.out.println("La opción seleccionada no esta disponible, intentelo de nuevo");
         }
-        if (option == 2) {
-            Identification identificacion = new Identification();
-        }
+
     }
 }
