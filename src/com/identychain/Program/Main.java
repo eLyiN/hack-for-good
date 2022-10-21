@@ -1,8 +1,12 @@
 package com.identychain.Program;
 
+import com.identychain.SecureHWID.SerialNumberLinux;
+import com.identychain.SecureHWID.SerialNumberMac;
+import com.identychain.SecureHWID.SerialNumberWindows;
+import com.identychain.SecureHWID.OSValidator;
+
 import java.util.Scanner;
 
-import static java.lang.Character.getName;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,9 +20,29 @@ public class Main {
         System.out.println("    5. Salir");
 
         Scanner scanner = new Scanner(System.in);
-        int opcion = scanner.nextInt();
-        if (opcion == 1) {
-
+        int option = scanner.nextInt();
+        if (option == 1) {
+            CreateToken token = new CreateToken();
+            String name = token.inputName();
+            System.out.println("El nombre introducido es: " + name);
+            if(OSValidator.isWindows() == true) {
+                String serialnb = SerialNumberWindows.getSerialNumber();
+                System.out.println("Su número de serie es: " + serialnb);
+            }
+            else if(OSValidator.isMac() == true) {
+                String serialnb = SerialNumberMac.getSerialNumber();
+                System.out.println("Su número de serie es: " + serialnb);
+            }
+            else if (OSValidator.isUnix() == true) {
+                String serialnb = SerialNumberLinux.getSerialNumber();
+                System.out.println("Su número de serie es: " + serialnb);
+            }
+               String password = token.getPassword();
+            String token1 = token.getToken();
+            System.out.println("Su token generado es: " + token1);
+        }
+        if (option == 2) {
+            Identification identificacion = new Identification();
         }
     }
 }
