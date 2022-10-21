@@ -1,4 +1,4 @@
-package com.identychain.SecureHWID;
+package com.identyTHOR.SecureHWID;
 
 public class OSValidator {
     private static String OS = System.getProperty("os.name").toLowerCase();

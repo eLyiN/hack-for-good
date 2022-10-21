@@ -1,4 +1,4 @@
-package com.identychain.Program;
+package com.identyTHOR.Program;
 
 
 public class Identification {

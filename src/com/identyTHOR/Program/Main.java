@@ -1,9 +1,9 @@
-package com.identychain.Program;
+package com.identyTHOR.Program;
 
-import com.identychain.SecureHWID.SerialNumberLinux;
-import com.identychain.SecureHWID.SerialNumberMac;
-import com.identychain.SecureHWID.SerialNumberWindows;
-import com.identychain.SecureHWID.OSValidator;
+import com.identyTHOR.SecureHWID.SerialNumberLinux;
+import com.identyTHOR.SecureHWID.SerialNumberMac;
+import com.identyTHOR.SecureHWID.SerialNumberWindows;
+import com.identyTHOR.SecureHWID.OSValidator;
 
 import java.util.Scanner;
 

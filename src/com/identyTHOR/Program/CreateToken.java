@@ -1,6 +1,6 @@
-package com.identychain.Program;
+package com.identyTHOR.Program;
 
-import com.identychain.SecureHWID.SerialNumberWindows;
+import com.identyTHOR.SecureHWID.SerialNumberWindows;
 
 import java.util.Objects;
 import java.util.Random;

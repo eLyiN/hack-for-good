@@ -1,4 +1,4 @@
-package com.identychain.SecureHWID;
+package com.identyTHOR.SecureHWID;
 
 import java.io.IOException;
 import java.io.InputStream;
