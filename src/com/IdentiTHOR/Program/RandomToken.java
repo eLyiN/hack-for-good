@@ -1,4 +1,4 @@
-package com.identyTHOR.Program;
+package com.IdentiTHOR.Program;
 
 import java.security.SecureRandom;
 import java.util.Locale;

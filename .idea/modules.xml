@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IdentyChain.iml" filepath="$PROJECT_DIR$/IdentyChain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdentiTHOR.iml" filepath="$PROJECT_DIR$/IdentiTHOR.iml" />
     </modules>
   </component>
 </project>

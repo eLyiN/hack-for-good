@@ -1,9 +1,9 @@
-package com.identyTHOR.Program;
+package com.IdentiTHOR.Program;
 
-import com.identyTHOR.SecureHWID.OSValidator;
-import com.identyTHOR.SecureHWID.SerialNumberLinux;
-import com.identyTHOR.SecureHWID.SerialNumberMac;
-import com.identyTHOR.SecureHWID.SerialNumberWindows;
+import com.IdentiTHOR.SecureHWID.OSValidator;
+import com.IdentiTHOR.SecureHWID.SerialNumberLinux;
+import com.IdentiTHOR.SecureHWID.SerialNumberMac;
+import com.IdentiTHOR.SecureHWID.SerialNumberWindows;
 
 import java.util.Objects;
 import java.util.Random;

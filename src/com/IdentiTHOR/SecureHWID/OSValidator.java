@@ -1,4 +1,4 @@
-package com.identyTHOR.SecureHWID;
+package com.IdentiTHOR.SecureHWID;
 
 public class OSValidator {
     private static String OS = System.getProperty("os.name").toLowerCase();

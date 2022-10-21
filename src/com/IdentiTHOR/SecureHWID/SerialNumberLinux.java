@@ -1,4 +1,4 @@
-package com.identyTHOR.SecureHWID;
+package com.IdentiTHOR.SecureHWID;
 
 
 import java.io.BufferedReader;
