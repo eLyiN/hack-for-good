@@ -29,6 +29,7 @@ public class Main {
                         System.out.println("Este numero de serie ya esta en uso, por favor intentifiquese");
                         break;
                     }
+
                     CreateToken token = new CreateToken();
                     String nameXML = token.createName();
                     System.out.println("El nombre introducido es: " + nameXML);
@@ -41,6 +42,8 @@ public class Main {
                 }
                 case 2: {
                     Identification identificacion = new Identification();
+                    identificacion.clearScreen();
+
                 }
                 case 3: {
 
