@@ -43,7 +43,7 @@ public class Main {
                     System.out.println("Este es su token, guardelo en un lugar seguro: " + tokenXML);
                 }
                 case 2 -> {
-                    System.out.println("Su número de serie es" + getSerialNumber());
+                    System.out.println("Su número de serie es " + getSerialNumber());
                     if (Objects.equals(snXML, getSerialNumber())) {
                         System.out.println("Actualmente usted posee un token de identidad en la Blockchain de IdentiTHOR");
                         System.out.println("Para ingresar, por favor introduzca su contraseña:");
@@ -54,7 +54,8 @@ public class Main {
                             new Identification().identiThorInterface(nameXML, snXML, tokenXML);
                         } else {
                             int count = 0;
-                            while (Objects.equals(identification, passwordXML) == false || count != 3) {
+                            while (!Objects.equals(identification, passwordXML) || count != 3) {
+                                System.out.println("ESTA ES LA PASSWORD" + passwordXML);
                                 count++;
                                 System.out.println("La contraseña es incorrecta, por favor intentelo de nuevo");
                                 System.out.println("Le quedan " + (3 - count) + " intentos");
@@ -68,10 +69,11 @@ public class Main {
                     }
                 }
                 case 3 -> {
-                    getBackUpFile();
+                    ImportAddress importAddress = new ImportAddress(tokenXML);
+
                 }
                 case 4 -> {
-                    getImportBackUpFile();
+                    ExportAddress exportAddress = new ExportAddress(tokenXML);
                 }
                 case 5 -> {
                     System.out.println("¡Hasta pronto!");

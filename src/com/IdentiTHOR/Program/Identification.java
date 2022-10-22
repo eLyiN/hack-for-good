@@ -71,7 +71,8 @@ public class Identification {
         System.out.println("    1. Nombre");
         System.out.println("    2. Email");
         System.out.println("    3. Salir");
-        // TODO SELECCION
+        Scanner scanner = new Scanner(System.in);
+        int option = scanner.nextInt();
     }
 
     private void getTraceability(String token) {
