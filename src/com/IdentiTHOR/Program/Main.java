@@ -16,11 +16,11 @@ public class Main {
     static String emailXML;
 
     public static void main(String[] args) throws IOException {
-        System.out.println("Bienveni@ a la versión 1.0 de IdentyTHOR");
+        System.out.println("Bienveni@ a la versión 1.0 de IdentiTHOR");
         System.out.println("Elija una de las siguientes opciones:");
         while (true) {
-            System.out.println("    1. Crear token de identidad de IdentyTHOR");
-            System.out.println("    2. Identificar en la Blockchain de IdentyTHOR");
+            System.out.println("    1. Crear token de identidad de IdentiTHOR");
+            System.out.println("    2. Identificar en la Blockchain de IdentiTHOR");
             System.out.println("    3. Importar token de identidad");
             System.out.println("    4. Exportar token de identidad");
             System.out.println("    5. Salir");
@@ -45,7 +45,7 @@ public class Main {
                 case 2 -> {
                     System.out.println("Su número de serie es" + getSerialNumber());
                     if (Objects.equals(snXML, getSerialNumber())) {
-                        System.out.println("Actualmente usted posee un token de identidad en la Blockchain de IdentyTHOR");
+                        System.out.println("Actualmente usted posee un token de identidad en la Blockchain de IdentiTHOR");
                         System.out.println("Para ingresar, por favor introduzca su contraseña:");
                         Scanner scannerIdentification = new Scanner(System.in);
                         String identification = scannerIdentification.nextLine();
@@ -57,7 +57,7 @@ public class Main {
                             while (Objects.equals(identification, passwordXML) == false || count != 3) {
                                 count++;
                                 System.out.println("La contraseña es incorrecta, por favor intentelo de nuevo");
-                                System.out.println("Le quedan" + (3 - count) + " intentos");
+                                System.out.println("Le quedan " + (3 - count) + " intentos");
                                 identification = scannerIdentification.nextLine();
                             }
                             System.out.println("No le quedan mas intentos, su numero de serie se bloqueara por 15 minutos, vuelva a intentarlo mas tarde");
@@ -68,10 +68,10 @@ public class Main {
                     }
                 }
                 case 3 -> {
-
+                    getBackUpFile();
                 }
                 case 4 -> {
-
+                    getImportBackUpFile();
                 }
                 case 5 -> {
                     System.out.println("¡Hasta pronto!");

@@ -83,8 +83,6 @@ public class Identification {
             String addressThorChain = "0xc0ffee254729296a45a3885639AC7E10F9d54979";
             String tagAddressThorChain = "PcComponentes";
             String hashThorChain = "6c94602b1124aee29b5fd3a573ca96b2";
-            System.out.println("Se buscaría en la cadena de bloques donde se encuentran nuestros datos y por donde han pasado");
-            System.out.println("Por ejemplo");
             System.out.println("        Token "+ token + " con HASH: " + hashThorChain);
             System.out.println("            Dirección: " + addressThorChain + " con identificador " + tagAddressThorChain);
         }
